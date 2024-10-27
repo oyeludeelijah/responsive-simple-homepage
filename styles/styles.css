@@ -13,7 +13,7 @@ html {
   padding: 0;
   box-sizing: border-box;
   /* outline: 2px solid lime; */
-  background: hsl(0 100% 50% / 0.1);
+  /* background: hsl(0 100% 50% / 0.1); */
 }
 
 /* Root variables for utility classes */
@@ -167,7 +167,7 @@ header {
   display: block;
   width: 20px;
   height: 20px;
-  background-image: url("/Sun_fill.svg"); /* Default light mode icon */
+  background-image: url("images/Sun_fill.svg"); /* Default light mode icon */
   background-size: cover;
   background-position: center;
   border-radius: 50%;
@@ -184,7 +184,7 @@ input[type="checkbox"]:checked + .toggle-label {
 }
 
 input[type="checkbox"]:checked + .toggle-label .toggle-icon {
-  background-image: url("/Moon_fill_light.svg"); /* Dark mode icon */
+  background-image: url("images/Moon_fill_light.svg"); /* Dark mode icon */
   background-color: black; /* Dark background color for the icon */
   transform: translateX(25px); /* Move the toggle to the right */
 }
