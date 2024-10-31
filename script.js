@@ -1,16 +1,15 @@
-"use strict";
-const checkbox = document.getElementById("dark-mode-checkbox");
+const desktopToggle = document.getElementById("dark-mode-checkbox");
+const mobileToggle = document.getElementById("dark-mode-checkbox-mobile");
 
-// Add an event listener to detect when the checkbox is toggled
-checkbox.addEventListener("change", () => {
-  if (checkbox.checked) {
-    // If checked, apply dark mode
-    document.body.classList.add("dark-mode");
-  } else {
-    // If not checked, apply light mode
-    document.body.classList.remove("dark-mode");
-  }
-});
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+  // Sync both checkboxes
+  desktopToggle.checked = document.body.classList.contains("dark-mode");
+  mobileToggle.checked = document.body.classList.contains("dark-mode");
+}
+
+desktopToggle.addEventListener("change", toggleDarkMode);
+mobileToggle.addEventListener("change", toggleDarkMode);
 
 function toggleMobileMenu() {
   const sidebar = document.getElementById("sidebar");

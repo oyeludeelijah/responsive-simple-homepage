@@ -249,6 +249,28 @@ header {
       8. Dark Mode
       ========================================================================== */
 
+/* For desktop toggle */
+#dark-mode-checkbox + .toggle-label .toggle-icon {
+  background-image: url("images/Sun_fill.svg");
+}
+
+#dark-mode-checkbox:checked + .toggle-label .toggle-icon {
+  background-image: url("images/Moon_fill_light.svg");
+  background-color: black;
+  transform: translateX(25px);
+}
+
+/* For mobile toggle */
+#dark-mode-checkbox-mobile + .toggle-label .toggle-icon {
+  background-image: url("images/Sun_fill.svg");
+}
+
+#dark-mode-checkbox-mobile:checked + .toggle-label .toggle-icon {
+  background-image: url("images/Moon_fill_light.svg");
+  background-color: black;
+  transform: translateX(25px);
+}
+
 .dark-mode-toggle-mobile {
   display: flex;
   justify-content: center;
