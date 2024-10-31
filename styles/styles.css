@@ -248,6 +248,12 @@ header {
 /* ==========================================================================
       8. Dark Mode
       ========================================================================== */
+
+.dark-mode-toggle-mobile {
+  display: flex;
+  justify-content: center;
+}
+
 .dark-mode-toggle {
   display: inline-block;
   position: relative;
