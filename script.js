@@ -11,3 +11,8 @@ checkbox.addEventListener("change", () => {
     document.body.classList.remove("dark-mode");
   }
 });
+
+function toggleMobileMenu() {
+  const sidebar = document.getElementById("sidebar");
+  sidebar.classList.toggle("active");
+}

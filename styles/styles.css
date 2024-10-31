@@ -1,11 +1,30 @@
+/* ==========================================================================
+   1. Imports & Root Settings
+   ========================================================================== */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-/* Set html font-size to 62.5% (1rem = 10px) for easier rem calculations */
 html {
-  font-size: 62.5%; /* 1rem = 10px */
+  font-size: 62.5%;
 }
 
-/* General Reset to remove default browser styling */
+:root {
+  --mt-20: 2rem;
+  --mb-20: 2rem;
+  --pt-20: 2rem;
+  --pb-20: 2rem;
+  --text-center: center;
+  --Blue-color: #2a4dd0;
+  --Green-color: #4ca154;
+  --dark-gray-color: #111729;
+  --darker-gray-color: #223344;
+  --light-gray-color: #909193;
+  --lighter-gray-color: #f2f9fe;
+  --white-color: #ffffff;
+}
+
+/* ==========================================================================
+      2. Reset & Base Styles
+      ========================================================================== */
 *,
 *::before,
 *::after {
@@ -13,33 +32,11 @@ html {
   padding: 0;
   box-sizing: border-box;
   /* outline: 2px solid lime; */
-  /* background: hsl(0 100% 50% / 0.1); */
 }
 
-/* Root variables for utility classes */
-:root {
-  /* Margin and Padding (in rem units) */
-  --mt-20: 2rem; /* 20px */
-  --mb-20: 2rem; /* 20px */
-  --pt-20: 2rem; /* 20px */
-  --pb-20: 2rem; /* 20px */
-
-  /* Text Alignment */
-  --text-center: center;
-
-  --Blue-color: #2a4dd0; /* Blue color */
-  --Green-color: #4ca154; /* Green color */
-  --dark-gray-color: #111729; /* Dark gray color */
-  --darker-gray-color: #223344; /* Darker gray color */
-  --light-gray-color: #909193; /* Light gray color */
-  --lighter-gray-color: #f2f9fe; /* Lighter gray color */
-  --white-color: #ffffff; /* White color */
-}
-
-/* Set body font and background styles */
 body {
   font-family: "Poppins", sans-serif;
-  font-size: 1.4rem; /* 16px */
+  font-size: 1.4rem;
   line-height: 1.6;
   margin: 0;
   padding: 0;
@@ -48,56 +45,34 @@ body {
   color: var(--dark-gray-color);
 }
 
-/* Container with max-width for centered content */
 .container {
   width: 100%;
-  max-width: 128rem; /* 1280px */
+  max-width: 128rem;
   margin: 0 auto;
-  padding: 0 2rem; /* 20px */
+  padding: 0 2rem;
 }
 
-/* Global link styles */
+.hidden {
+  display: none;
+}
+
 a {
   text-decoration: none;
-  /* color: #3498db; Blue color for links */
 }
 
-a:hover {
-  /* color: #2980b9; Darker blue on hover */
-}
-
+/* ==========================================================================
+      3. Header & Navigation
+      ========================================================================== */
 header {
   margin-bottom: calc(var(--mb-20) * 4);
 }
 
-/* Basic layout for navbar */
 .navbar {
-  /* box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1); */
   padding: 1rem 0;
-  /* max-width: 128rem; */
   width: 100%;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.navbar ul {
-  display: flex;
-  gap: 6rem;
-  list-style: none;
-  font-weight: 600;
-  font-size: 1.3rem;
-  /* transition: 0.3 ease-in-out; */
-}
-
-.navbar a {
-  color: var(--light-gray-color);
-  /* transition: 0.3s ease-in-out; */
-}
-
-.navbar a:hover {
-  color: var(--dark-gray-color);
 }
 
 .navbar .container {
@@ -106,135 +81,83 @@ header {
   align-items: center;
 }
 
-/* Navbar logo */
-.navbar-logo {
-  font-size: 2.4rem; /* 24px */
-  font-weight: bold;
-  color: #333;
-}
-
-/* Navbar links */
-.navbar-nav {
-  list-style: none;
-  display: flex;
-}
-
-.navbar-nav li {
-  margin-left: 2rem; /* 20px */
-}
-
-.navbar-nav a {
-  color: #333;
-  font-size: 1.6rem;
-  /* font-size: clamp(1.3rem, 1vw + 1rem, 3rem); */
-  padding: 0.5rem 1rem; /* 5px 10px */
-}
-
-.navbar-nav a:hover {
-  /* color: #007bff; Blue highlight on hover */
-}
-
-/* Basic styles for the toggle container */
-/* Basic styles for the toggle container */
-/* Basic styles for the toggle container */
-.dark-mode-toggle {
-  display: inline-block;
-  position: relative;
-  width: 49px;
-  height: 24px;
-}
-
-/* The checkbox (hidden) */
-.dark-mode-toggle input[type="checkbox"] {
-  display: none;
-}
-
-/* The label that will be the actual toggle switch */
-.toggle-label {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  background-color: #34373c;
-  border-radius: 30px;
-  position: relative;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-/* The icon inside the toggle */
-.toggle-icon {
-  content: "";
-  display: block;
-  width: 20px;
-  height: 20px;
-  background-image: url("images/Sun_fill.svg"); /* Default light mode icon */
-  background-size: cover;
-  background-position: center;
-  border-radius: 50%;
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  transition: all 0.3s ease;
-  background-color: white; /* White for light mode */
-}
-
-/* When checked, change background and icon color */
-input[type="checkbox"]:checked + .toggle-label {
-  background-color: #e5e5e5;
-}
-
-input[type="checkbox"]:checked + .toggle-label .toggle-icon {
-  background-image: url("images/Moon_fill_light.svg"); /* Dark mode icon */
-  background-color: black; /* Dark background color for the icon */
-  transform: translateX(25px); /* Move the toggle to the right */
-}
-
-/* Default (light mode) body styles */
-body {
-  /* background-color: white; */
-  /* color: black; */
-  transition: 0.3s ease-in-out;
-}
-
 .logo-dark {
   display: none;
 }
 
-/* Dark mode styles */
-/* Dark mode styles */
-/* Dark mode styles */
-/* Dark mode styles */
-/* Dark mode styles */
-/* Dark mode styles */
-/* Dark mode styles */
-body.dark-mode {
-  background-color: #1c1f24; /* Dark background */
-  color: white; /* Light text color */
+.logo img {
+  width: clamp(10rem, 15vw, 14.1rem);
 }
 
-body.dark-mode .logo-light {
+.navbar ul {
+  display: flex;
+  gap: 6rem;
+  list-style: none;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.navbar a {
+  color: var(--light-gray-color);
+}
+
+.navbar a:hover {
+  color: var(--dark-gray-color);
+}
+
+.mobile-menu-toggle {
   display: none;
 }
 
-body.dark-mode .logo-dark {
-  display: inline;
+/* ==========================================================================
+      4. Mobile Sidebar
+      ========================================================================== */
+.mobile-part {
+  display: none;
 }
 
-body.dark-mode .navbar a:hover {
-  color: var(--lighter-gray-color);
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -25rem;
+  width: 25rem;
+  height: 100%;
+  background-color: var(--white-color);
+  z-index: 1;
+  overflow-x: hidden;
+  transition: right 0.3s;
 }
 
-/* Hero section */
+.sidebar ul {
+  flex-direction: column;
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+.mobile-menu-close {
+  display: flex;
+  justify-content: end;
+  cursor: pointer;
+  margin-bottom: calc(var(--mb-20) * 3);
+}
+
+.mobile-menu-close img {
+  width: 3rem;
+}
+
+/* ==========================================================================
+      5. Hero Section
+      ========================================================================== */
 .hero {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 10rem;
-
   transition: all 0.3s;
 }
 
 .hero-text h1 {
-  /* font-size: clamp(1rem, 1vw + 1rem, 3rem); */
   font-size: 1.5rem;
   text-transform: uppercase;
   margin-bottom: calc(var(--mb-20));
@@ -259,6 +182,9 @@ body.dark-mode .navbar a:hover {
   display: block;
 }
 
+/* ==========================================================================
+      6. CTA Buttons
+      ========================================================================== */
 .CTA {
   display: flex;
   gap: 2rem;
@@ -293,15 +219,23 @@ body.dark-mode .navbar a:hover {
   text-decoration: underline;
   text-underline-offset: 0.3rem;
   cursor: pointer;
+  transition: 0.1s linear;
 }
 
+.cta-btn-2:hover {
+  text-underline-offset: 0.7rem;
+}
+
+.cta-btn-2:active {
+  text-underline-offset: 0.4rem;
+}
+
+/* ==========================================================================
+      7. Extra Features
+      ========================================================================== */
 .extra-features {
   display: flex;
   gap: 2rem;
-}
-
-.extra-features img {
-  /* display: block; */
 }
 
 .features-1,
@@ -311,64 +245,111 @@ body.dark-mode .navbar a:hover {
   gap: 1rem;
 }
 
-/* Main content section */
-/* .main-content {
-  padding: 4rem 0; 
+/* ==========================================================================
+      8. Dark Mode
+      ========================================================================== */
+.dark-mode-toggle {
+  display: inline-block;
+  position: relative;
+  width: 49px;
+  height: 24px;
 }
 
-.main-content h2 {
-  margin-bottom: var(--mb-20);
-  font-size: 3.2rem
-  color: #333;
+.dark-mode-toggle input[type="checkbox"] {
+  display: none;
 }
 
-.main-content p {
-  margin-bottom: var(--mb-20);
-  font-size: 1.8rem;
-  color: #555;
-} */
-
-/* Footer */
-footer {
-  /* background-color: #333; */
-  color: #fff;
-  padding: 2rem 0; /* 20px */
-  text-align: var(--text-center);
+.toggle-label {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-color: #34373c;
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-footer p {
-  margin: 0;
-  font-size: 1.4rem; /* 14px */
+.toggle-icon {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url("images/Sun_fill.svg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: all 0.3s ease;
+  background-color: white;
 }
 
-/* Utility classes */
-.text-center {
-  text-align: var(--text-center);
+input[type="checkbox"]:checked + .toggle-label {
+  background-color: #e5e5e5;
 }
 
-.mt-20 {
-  margin-top: var(--mt-20);
+input[type="checkbox"]:checked + .toggle-label .toggle-icon {
+  background-image: url("images/Moon_fill_light.svg");
+  background-color: black;
+  transform: translateX(25px);
 }
 
-.mb-20 {
-  margin-bottom: var(--mb-20);
+.close_icon-white {
+  display: none;
 }
 
-.pt-20 {
-  padding-top: var(--pt-20);
+.bar_icon-white {
+  display: none;
 }
 
-.pb-20 {
-  padding-bottom: var(--pb-20);
+body.dark-mode {
+  background-color: #1c1f24;
+  color: white;
 }
 
+body.dark-mode .logo-light {
+  display: none;
+}
+
+body.dark-mode .logo-dark {
+  display: inline;
+}
+
+body.dark-mode .navbar a:hover {
+  color: var(--lighter-gray-color);
+}
+
+body.dark-mode .sidebar {
+  background-color: var(--dark-gray-color);
+}
+
+body.dark-mode .close_icon-white {
+  display: inline;
+}
+
+body.dark-mode .close_icon-black {
+  display: none;
+}
+
+body.dark-mode .bar_icon-white {
+  display: inline;
+}
+
+body.dark-mode .bar_icon-black {
+  display: none;
+}
+
+/* ==========================================================================
+      9. Media Queries
+      ========================================================================== */
 @media (max-width: 1020px) {
   .navbar a {
     font-size: clamp(1rem, 1.5vw, 5rem);
   }
 
   .hero {
-    /* flex-direction: column-reverse; */
     grid-template-columns: 1fr;
     gap: calc(var(--mb-20) * 4);
     padding: 6rem;
@@ -385,9 +366,9 @@ footer p {
 
   .hero-img img {
     width: 120%;
-    max-width: 80%; /* Ensure it doesn't exceed container */
-    height: auto; /* Keep aspect ratio */
-    transform: scale(1.1); /* Slightly increase the image */
+    max-width: 80%;
+    height: auto;
+    transform: scale(1.1);
   }
 
   .hero-text h1 {
@@ -395,7 +376,6 @@ footer p {
   }
 
   .hero-text h2 {
-    /* font-size: 4.5rem; */
     font-size: clamp(4rem, 5vw, 20rem);
   }
 
@@ -408,15 +388,12 @@ footer p {
 
   .cta-btn,
   .cta-btn-2 {
-    /* padding: 1rem 2.3rem; */
     font-size: clamp(1.1rem, 1.5vw, 2rem);
-
     display: flex;
     align-items: center;
     justify-content: center;
     padding-top: clamp(1.25rem, 1vw, 2rem);
     padding-bottom: clamp(1.25rem, 1vw, 2rem);
-
     width: clamp(15rem, 2.2vw, 19rem);
     padding-right: 0;
     padding-left: 0;
@@ -432,31 +409,54 @@ footer p {
   }
 }
 
-@media (max-width: 750px) {
-  .hero-text h2 {
-    /* font-size: 4.5rem; */
-  }
-}
-
 @media (max-width: 640px) {
+  .mobile-part {
+    display: inline;
+  }
+
   .hero {
     gap: calc(var(--mb-20) * 2);
     padding: 4rem;
   }
 
-  .navbar ul {
+  .nav-links li,
+  .desktop-only {
     display: none;
   }
 
-  /* .hero-text h2 {
-    font-size: 4.5rem;
-  } */
+  .sidebar {
+    padding: 1rem;
+  }
+
+  .sidebar ul {
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: calc(var(--mb-20) * 2);
+  }
+
+  .sidebar a {
+    font-size: 2.5rem;
+  }
+
+  .mobile-menu-toggle {
+    display: inline;
+    cursor: pointer;
+  }
+
+  .mobile-menu-toggle img {
+    width: 3rem;
+  }
+
+  .mobile-only {
+    display: flex;
+    justify-content: center;
+  }
 
   .hero-img img {
     width: 90%;
-    max-width: 100%; /* Ensure it doesn't exceed container */
-    height: auto; /* Keep aspect ratio */
-    transform: scale(1.1); /* Slightly increase the image */
+    max-width: 100%;
+    height: auto;
+    transform: scale(1.1);
   }
 
   .CTA {
